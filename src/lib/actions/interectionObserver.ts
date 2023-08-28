@@ -1,4 +1,4 @@
-import type { Action, ActionReturn } from "svelte/action";
+import type { Action } from "svelte/action";
 export let observer: IntersectionObserver;
 export const observerAction: Action<HTMLElement, {props:IntersectionObserverInit} | undefined, { 'on:observe': (e: CustomEvent<any>) => void }> = (container, options) => {
     const actionEvent = (container:HTMLElement, entry:IntersectionObserverEntry) => {
