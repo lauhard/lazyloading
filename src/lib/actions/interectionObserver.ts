@@ -1,18 +1,40 @@
 import type { Action, ActionReturn } from "svelte/action";
-
-export const observerAction: Action<HTMLElement, { prop: any } | undefined, { 'on:observe': (e: CustomEvent<any>) => void }> = (node, prop) => {
-    const action = (node:HTMLElement) => {
+export let observer: IntersectionObserver;
+export const observerAction: Action<HTMLElement, {props:IntersectionObserverInit} | undefined, { 'on:observe': (e: CustomEvent<any>) => void }> = (container, options) => {
+    const actionEvent = (container:HTMLElement, entry:IntersectionObserverEntry) => {
         const dispatch = new CustomEvent(
             "observe", {
                 detail:{
-                    hello: "world"
+                    node:entry,
+                    isIntersecting: entry.isIntersecting,
                 }
             }
         )
-        node.dispatchEvent(dispatch)
+        container.dispatchEvent(dispatch)
         console.log("action dispatched");
     }
-    action(node);
+
+   
+    const observerLogic = (entries: IntersectionObserverEntry[]) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                // console.log('isIntersecting', entry)
+                actionEvent(container, entry);
+            } else {
+                // console.log('is not Intersecting', entry)
+                actionEvent(container, entry);
+            }
+        })
+    }
+    if(!observer) {  
+        observer = new IntersectionObserver(observerLogic, {root:container, ...options?.props})
+    }
+
+    const children = container.children;
+    for (let index = 0; index < children.length; index++) {
+        const child = children[index];
+        observer.observe(child as HTMLElement);
+    }
 
     return{
         update() {
@@ -22,4 +44,5 @@ export const observerAction: Action<HTMLElement, { prop: any } | undefined, { 'o
             console.log("destroy")
         },
     }
+    
 }

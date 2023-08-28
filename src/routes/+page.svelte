@@ -4,8 +4,7 @@
 	import cat2 from '$lib/images/cat2.jpg';
 	import cat3 from '$lib/images/cat3.jpg';
 	const observe = (e:CustomEvent) => {
-		console.log(e.detail.hello);
-		console.log("observe")
+		console.log(e.detail.isIntersecting);
 	}
 </script>
 
