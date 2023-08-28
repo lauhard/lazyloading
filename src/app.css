@@ -10,7 +10,7 @@
   --background: #090909;
   --background-attachment: fixed;
   --background-size: 100vw 100vh;
-  --background-color: #000;
+  --background-color: #090909;
   --text: #f1f1f1c0 !important;
   --primary: #8eb727 !important;
   --primary-hover: #b8df57 !important;
@@ -23,8 +23,8 @@
   --font-family: "Segoe UI", sans-serif, -apple-system !important;
   --font-size:15px;
   --font-size-text: calc(var(--font-size) + 0.390625vw);
-  --svg-icon-fill: #060000;
-  --svg-icon-stroke: #060000;
+  --svg-icon-fill: #090909;
+  --svg-icon-stroke: #090909;
   --padding-side:1rem;
   --content-width: 1240px;
   --border-radius: .8rem;
@@ -47,7 +47,7 @@
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: var(--main-background-color, #fff);
+  background: var(--background-color, var(--background, #fff));
 }
 
 /* Handle */

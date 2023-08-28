@@ -9,24 +9,29 @@
 		<slot />
 	</main>
 
-	<Footer>
-		<p slot="stock-images">Images provided from:</p>
+	<Footer className="footer">
+		
 	</Footer>
 
 </div>
 
 <style lang="scss">
+	
 	.app{
 		height: 100%;
+		
 		width: 100%;
 		display: flex;
 		justify-content: center;
+		position: relative;
 		main{
-			height: 100vh;
+			min-height: 100vh;
+			height: 100%;
 			max-height: 100%;
 			display: flex;
 			flex-direction: column;
-			width:var(--content-width);
+			position: relative;
+			// width:var(--content-width);
 		}
 	}
 </style>
