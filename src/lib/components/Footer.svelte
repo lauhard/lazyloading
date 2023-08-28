@@ -1,14 +1,13 @@
 <script>
     const copyright = ()=>{
-        const copyright = `© Andreas Lauhard, ${new Date().getFullYear()} `;
-        return year;
+        return  `© Andreas Lauhard, ${new Date().getFullYear()} `;
     }
 </script>
 <footer>
     <slot name="stock-images">
 
     </slot>
-    <p>{copyright}</p>
+    <p>{copyright()}</p>
 </footer>
 <style>
 
