@@ -1,7 +1,12 @@
 <script lang="ts">
+    import { observerAction } from '$lib/actions/interectionObserver';
 	import cat1 from '$lib/images/cat1.jpg';
 	import cat2 from '$lib/images/cat2.jpg';
 	import cat3 from '$lib/images/cat3.jpg';
+	const observe = (e:CustomEvent) => {
+		console.log(e.detail.hello);
+		console.log("observe")
+	}
 </script>
 
 <svelte:head>
@@ -13,9 +18,9 @@
 	<h1>
 		Sveltekit Lazy Loading Example!
 	</h1>
-	<div class="viewport">
+	<div class="viewport" use:observerAction on:observe={observe}>
 		<div class="item">
-			<img class="image" src="{cat1}" alt="cat1" srcset="">
+			<img class="image" data-src="{cat1}" alt="cat1" srcset="">
 		</div>
 		<div class="item">2</div>
 		<div class="item">3</div>
