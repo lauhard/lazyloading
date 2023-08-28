@@ -1,4 +1,7 @@
 <script lang="ts">
+	import cat1 from '$lib/images/cat1.jpg';
+	import cat2 from '$lib/images/cat2.jpg';
+	import cat3 from '$lib/images/cat3.jpg';
 </script>
 
 <svelte:head>
@@ -11,7 +14,9 @@
 		Sveltekit Lazy Loading Example!
 	</h1>
 	<div class="viewport">
-		<div class="item">1</div>
+		<div class="item">
+			<img class="image" src="{cat1}" alt="cat1" srcset="">
+		</div>
 		<div class="item">2</div>
 		<div class="item">3</div>
 		<div class="item">4</div>
@@ -34,6 +39,13 @@
 			min-height:200px;
 			height: 200px;
 			width:auto;
+			.image{
+				height:100%;
+				width:160px;
+				object-fit: cover;
+				border-radius: 1rem;
+			}
 		}
+
 	}
 </style>
