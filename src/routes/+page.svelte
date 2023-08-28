@@ -8,7 +8,7 @@
 
 <section>
 	<h1>
-		Sveltekit Lazy Loading Example
+		Sveltekit Lazy Loading Example!
 	</h1>
 </section>
 
