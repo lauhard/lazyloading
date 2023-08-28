@@ -113,6 +113,7 @@
 			border-radius: 1rem 0 0 1rem;
 			box-sizing: border-box;
 			overflow-y: scroll;
+			margin-bottom: 5rem;
 			.item {
 				min-height: 200px;
 				height: 200px;

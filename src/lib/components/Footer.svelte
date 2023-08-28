@@ -30,6 +30,8 @@
         background: rgb(20, 19, 19);
         z-index: 999;
         padding: 1rem;
+        height: 13rem;
+
 		ul{
 			padding: var(--padding-side);
             p{
@@ -41,7 +43,7 @@
             }
 		}
        .legal-notice{
-            padding-left:var(--padding-side);
+            padding-left: var(--padding-side);
             font-size: 1.1rem;
        }
     }
